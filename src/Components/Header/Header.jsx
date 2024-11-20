@@ -5,6 +5,7 @@ const Header = () => {
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/login'>Login</NavLink></li>
     <li><NavLink to='/registar'>Registar</NavLink></li>
+    <li><NavLink to='/heroreg'>Hero Registar</NavLink></li>
   
     </>
     return (
@@ -38,9 +39,7 @@ const Header = () => {
    {link}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+  
 </div>
     );
 };
