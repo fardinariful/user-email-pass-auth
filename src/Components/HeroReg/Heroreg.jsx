@@ -1,7 +1,20 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
+
 const Heroreg = () => {
     const handleclickhero=e=>{
         e.preventDefault();
-        console.log('toxic')
+        const email=e.target.email.value;
+        console.log(email);
+        const password=e.target.password.value;
+        console.log(password);
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(Result=>{
+            console.log(Result.user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
 
     }
     return (
@@ -21,19 +34,19 @@ const Heroreg = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input type="email" placeholder="email" name="email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
+          <input type="password" placeholder="password" name="password"className="input input-bordered" required />
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+        <input className="btn btn-primary  w-full p-4" type="submit" value="Register" />
         </div>
       </form>
     </div>

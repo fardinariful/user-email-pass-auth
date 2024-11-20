@@ -1,3 +1,6 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
+
 const Registar = () => {
 
     const handleclickreg=e=>{
@@ -6,6 +9,14 @@ const Registar = () => {
         console.log(email);
         const password=e.target.password.value;
         console.log(password);
+        //create new user
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(Result=>{
+            console.log(Result.user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
     return (
         <div className="container mx-auto text-center">
