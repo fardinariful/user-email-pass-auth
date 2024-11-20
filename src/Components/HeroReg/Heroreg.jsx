@@ -1,7 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { useState } from "react";
 
 const Heroreg = () => {
+
+    //const [Errormsg,setErrormsg]=useState[''];
     const handleclickhero=e=>{
         e.preventDefault();
         const email=e.target.email.value;
@@ -14,9 +17,12 @@ const Heroreg = () => {
         })
         .catch(error=>{
             console.log(error);
+            setErrormsg(error.message);
         })
 
     }
+
+
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
@@ -49,6 +55,9 @@ const Heroreg = () => {
         <input className="btn btn-primary  w-full p-4" type="submit" value="Register" />
         </div>
       </form>
+      {/* {
+        Errormsg && <p className="text-red-500">{Errormsg}</p>
+      } */}
     </div>
   </div>
 </div>
