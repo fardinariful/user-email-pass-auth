@@ -11,6 +11,9 @@ const Registar = () => {
         console.log(email);
         const password=e.target.password.value;
         console.log(password);
+        if(password.length<6){
+            setErrormsg('Password should be 6 cha');
+        }
         setErrormsg('');
         setsuccess('');
         //create new user
